@@ -34,7 +34,9 @@ Demo owner account:
 
 This is a browser-only prototype. It does not process payments, send email, calculate tax, or connect to a live database. Demo member/staff passwords and applications are stored in local storage and are not secure. Owner/staff approval is only simulated in this browser; it does not send applicants a notification. Order number plus email is not production-grade authentication; use Supabase Auth, server-verified roles and memberships, and signed, expiring tracking links before handling real accounts or orders. Do not use real customer or staff data.
 
-## Supabase foundation
+## Supabase database blueprint (not connected to the app)
+
+The `supabase/` folder contains a **database blueprint only**. In particular, `supabase/schema.sql` describes the tables, relationships, policies, and setup steps intended for a future Supabase integration. The current website does not connect to Supabase or read/write data there; its demo data is stored in the browser's local storage. Running the SQL creates the outlined database objects, but does not connect the website to them or enable live authentication, syncing, or checkout.
 
 1. Create a Supabase project.
 2. Run [`supabase/schema.sql`](./supabase/schema.sql) in the Supabase SQL editor.
