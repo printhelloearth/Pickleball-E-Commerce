@@ -10,6 +10,7 @@ create type public.sales_channel as enum ('online', 'in_store');
 
 create table public.staff_profiles (
   user_id uuid primary key references auth.users(id) on delete cascade,
+  email text not null unique,
   full_name text not null,
   role public.staff_role not null default 'cashier',
   permissions text[] not null default array['pos']::text[]
@@ -29,6 +30,10 @@ create table public.access_applications (
   reviewed_at timestamptz,
   created_at timestamptz not null default now()
 );
+
+create unique index access_applications_one_pending_email_idx
+  on public.access_applications (lower(applicant_email))
+  where status = 'pending';
 
 create table public.products (
   id uuid primary key default gen_random_uuid(),
@@ -391,5 +396,5 @@ grant select, insert, update, delete on
 -- inventory_movements, and creates the order and payment record together.
 -- Never allow an untrusted browser to write arbitrary prices or stock quantities.
 -- Bootstrap the first owner by creating an Auth user, then run this in the SQL editor:
--- insert into public.staff_profiles (user_id, full_name, role)
--- values ('AUTH-USER-UUID', 'Store Owner', 'owner');
+-- insert into public.staff_profiles (user_id, email, full_name, role)
+-- values ('AUTH-USER-UUID', 'owner@example.com', 'Store Owner', 'owner');
