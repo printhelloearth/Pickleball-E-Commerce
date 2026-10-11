@@ -1,14 +1,13 @@
 # AthLife Pickleball Store
 
+https://pickleball-e-commerce-iimf8fmla-builder-5fe3.vercel.app/
 
-
-## Preview
+# Preview
 
 The preview includes the storefront, cart and demo checkout, customer order tracking, customer membership dashboard, staff dashboard, product and inventory management, order management, point of sale, and owner-managed staff permissions. Demo data is saved in that browser's local storage.
 
 The page structure stays in `frontend.html`; shared styles are in `assets/css/styles.css`. JavaScript is organized into `assets/js/data.js`, `storefront.js`, `orders.js`, `accounts.js`, `dashboard.js`, `membership.js`, and `scroll.js`, loaded in that order. Keep these files in their folders when moving the project, and continue opening `frontend.html`.
 
-CODE BASE
 
 # Deployment to Vercel
 
@@ -38,7 +37,7 @@ Demo owner account:
 
 This is a browser-only prototype. It does not process payments, send email, calculate tax, or connect to a live database. Demo member/staff passwords and applications are stored in local storage and are not secure. Owner/staff approval is only simulated in this browser; it does not send applicants a notification. Order number plus email is not production-grade authentication; use Supabase Auth, server-verified roles and memberships, and signed, expiring tracking links before handling real accounts or orders. Do not use real customer or staff data.
 
-## Supabase database blueprint (not connected to the app)
+# Supabase database blueprint (not connected to the app)
 
 The `supabase/` folder contains a **database blueprint only**. In particular, `supabase/schema.sql` describes the tables, relationships, policies, and setup steps intended for a future Supabase integration. The current website does not connect to Supabase or read/write data there; its demo data is stored in the browser's local storage. Running the SQL creates the outlined database objects, but does not connect the website to them or enable live authentication, syncing, or checkout.
 
