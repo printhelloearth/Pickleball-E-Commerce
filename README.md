@@ -1,12 +1,15 @@
 # AthLife Pickleball Store
 
-## Preview
+https://pickleball-e-commerce-iimf8fmla-builder-5fe3.vercel.app/
 
-Open `frontend.html` in a browser. The preview includes the storefront, cart and demo checkout, customer order tracking, customer membership dashboard, staff dashboard, product and inventory management, order management, point of sale, and owner-managed staff permissions. Demo data is saved in that browser's local storage.
+# Preview
+
+The preview includes the storefront, cart and demo checkout, customer order tracking, customer membership dashboard, staff dashboard, product and inventory management, order management, point of sale, and owner-managed staff permissions. Demo data is saved in that browser's local storage.
 
 The page structure stays in `frontend.html`; shared styles are in `assets/css/styles.css`. JavaScript is organized into `assets/js/` modules, including `supabase-config.js` and `supabase-auth.js` for optional Supabase staff authentication. Keep these files in their folders when moving the project, and continue opening `frontend.html`.
 
-## Deploy to Vercel
+
+# Deployment to Vercel
 
 The included [`vercel.json`](./vercel.json) routes the site root to `frontend.html`, so visitors can open the Vercel domain directly.
 
@@ -34,10 +37,15 @@ Demo owner account:
 
 This is a prototype. It does not process payments, calculate tax, or save storefront, membership, inventory, and order data to Supabase. Those demo features use browser local storage and are not secure. Staff Auth and application review can use Supabase only after configuration below; until then, approval and password reset are simulated/not available. Order number plus email is not production-grade authentication; use signed, expiring tracking links before handling real orders. Do not use real customer or staff data until the project has been fully configured and tested.
 
+<<<<<<< HEAD
 ## Supabase database blueprint and optional staff Auth
+=======
+# Supabase database blueprint (not connected to the app)
+>>>>>>> 1ae475ec96f4a8f3fea821923135d1f9488d63c4
 
 The `supabase/` folder contains a **database blueprint and the source for one optional staff-application Edge Function**. The schema is not automatically applied when you deploy the site. Most website features still use browser local storage; the Supabase connection described here is limited to staff Auth, staff profiles, and access applications. It does not enable live product, inventory, membership, order, or payment syncing.
 
+<<<<<<< HEAD
 1. Create a Supabase project.
 2. Run [`supabase/schema.sql`](./supabase/schema.sql) in the Supabase SQL editor.
 3. In **Authentication → URL Configuration**, set the deployed site URL and add the exact redirect URL ending in `/frontend.html` to the allowed redirect URLs. Configure email delivery/SMTP so invitation and recovery emails can be sent.
@@ -53,5 +61,7 @@ The `supabase/` folder contains a **database blueprint and the source for one op
    Supabase supplies the function's project URL and API keys. Only this server-side function uses the service-role key to provision accounts; it verifies the caller is an owner first.
 7. Reload the site. Staff applications will be stored in Supabase, owner approval will invite the applicant to set a password, and **Forgot your password?** will send a password recovery email. Verify both email links on the deployed site before using real accounts.
 8. Before taking real orders, implement trusted Edge Functions for checkout and POS transactions. They must validate prices and inventory and atomically write orders, payments, and inventory movements. Configure payment providers separately; never put secret keys in the browser.
+=======
+>>>>>>> 1ae475ec96f4a8f3fea821923135d1f9488d63c4
 
 The schema includes products and variants, inventory and movement history, staff roles and permissions, pending access applications, customers and memberships, shared online/in-store orders, discounts, and payment references. Only staff Auth, staff profiles, and staff applications are wired to the frontend when configured; the rest remains a blueprint.
