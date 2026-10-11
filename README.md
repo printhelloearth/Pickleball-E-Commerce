@@ -4,11 +4,17 @@
 
 Open `frontend.html` in a browser. The preview includes the storefront, cart and demo checkout, customer order tracking, customer membership dashboard, staff dashboard, product and inventory management, order management, point of sale, and owner-managed staff permissions. Demo data is saved in that browser's local storage.
 
+The page structure stays in `frontend.html`; shared styles are in `assets/css/styles.css`. JavaScript is organized into `assets/js/data.js`, `storefront.js`, `orders.js`, `accounts.js`, `dashboard.js`, `membership.js`, and `scroll.js`, loaded in that order. Keep these files in their folders when moving the project, and continue opening `frontend.html`.
+
+Tailwind CSS is loaded from its Play CDN for this no-build prototype and powers the button/card transitions and bouncing hero ball. Section links use a slower 1.5-second eased scroll, and the ticker and other scene effects use CSS animations. Opening the page with an internet connection is required for Tailwind utilities; the existing site styles still provide the core layout and fallback motion. For production, replace the Play CDN with a compiled Tailwind build.
+
 Customers can open **Track order** and enter their order number and checkout email. After placing a demo order, the order-tracking dashboard opens with its details. The status timeline reflects the latest status selected in the staff Orders dashboard.
 
 The storefront has one **Account** button for member, staff, and owner sign-in and registration. New members can register directly. Staff and owner registration submits an application; only an existing owner can approve it under **Staff access**. Approval creates a demo account and shows a temporary password once. Owners can continue to add staff directly and set per-feature permissions.
 
 Members receive a demo 10% merchandise discount at checkout and can shop members-only products in the Secret shop on their membership dashboard.
+
+The storefront's **Membership** section highlights the member discount, Secret shop access, online order updates, and order history. The **Be a member** call to action opens the existing member registration flow.
 
 Demo owner account:
 
