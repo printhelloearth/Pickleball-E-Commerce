@@ -6,6 +6,17 @@ Open `frontend.html` in a browser. The preview includes the storefront, cart and
 
 The page structure stays in `frontend.html`; shared styles are in `assets/css/styles.css`. JavaScript is organized into `assets/js/data.js`, `storefront.js`, `orders.js`, `accounts.js`, `dashboard.js`, `membership.js`, and `scroll.js`, loaded in that order. Keep these files in their folders when moving the project, and continue opening `frontend.html`.
 
+## Deploy to Vercel
+
+The included [`vercel.json`](./vercel.json) routes the site root to `frontend.html`, so visitors can open the Vercel domain directly.
+
+1. Push this project folder to a GitHub repository, including `frontend.html`, `assets/`, `vercel.json`, and `supabase/`.
+2. In Vercel, choose **Add New → Project**, import that GitHub repository, and set the **Root Directory** to this project folder if the repository contains other folders.
+3. Select **Other** as the framework preset. This static prototype needs no build command; use `.` as the output directory if Vercel asks for one.
+4. Deploy. Vercel will provide a preview URL; merge/push to the configured production branch to publish updates.
+
+The deployment is still a browser-only demo: Vercel does not connect Supabase automatically, and the current membership, staff, inventory, and order state remains in each visitor's browser storage. Do not use the demo credentials or collect real customer data.
+
 Tailwind CSS is loaded from its Play CDN for this no-build prototype and powers the button/card transitions and bouncing hero ball. Section links use a slower 1.5-second eased scroll, and the ticker and other scene effects use CSS animations. Opening the page with an internet connection is required for Tailwind utilities; the existing site styles still provide the core layout and fallback motion. For production, replace the Play CDN with a compiled Tailwind build.
 
 Customers can open **Track order** and enter their order number and checkout email. After placing a demo order, the order-tracking dashboard opens with its details. The status timeline reflects the latest status selected in the staff Orders dashboard.
